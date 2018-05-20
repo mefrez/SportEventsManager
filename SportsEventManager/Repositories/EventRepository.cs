@@ -10,7 +10,7 @@ namespace SportsEventManager.Repositories
 {
     public interface IEventRepository
     {
-        void Create(Event ev);
+        Event Create(Event ev);
 
         void Start(int id);
 
@@ -26,11 +26,13 @@ namespace SportsEventManager.Repositories
             _dbContext = dbContext;
         }
 
-        public void Create(Event ev)
+        public Event Create(Event ev)
         {
             _dbContext.EventDbSet.Add(ev);
 
             _dbContext.SaveChanges();
+
+            return ev;
             
         }
 

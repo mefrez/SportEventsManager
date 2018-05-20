@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SportsEventManager.Data;
 using SportsEventManager.Models;
 using System;
 using System.Collections.Generic;
@@ -14,13 +15,16 @@ namespace SportsEventManager.Repositories
     }
     public class FootballRepository : IFootballRepository
     {
-        private DbSet<Football> _dbSet;
+        private ApplicationDbContext _dbContext;
 
-        private DbContext _dbContext;
+        public FootballRepository(ApplicationDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
 
         public void Create(Football ev)
         {
-            _dbSet.Add(ev);
+            _dbContext.FootballDbSet.Add(ev);
 
             _dbContext.SaveChanges();
 
@@ -28,7 +32,7 @@ namespace SportsEventManager.Repositories
 
         public List<Football> Get(Football ev)
         {
-            return _dbSet.ToList();
+            return _dbContext.FootballDbSet.ToList();
         }
     }
 }

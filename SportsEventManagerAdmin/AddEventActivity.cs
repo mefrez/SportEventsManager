@@ -85,8 +85,15 @@ namespace SportsEventManagerAdmin
 
                 string msg = await message.Content.ReadAsStringAsync();
 
+                ev = JsonConvert.DeserializeObject<Event>(msg);
+
                 if (sportType1.Checked == true)
                 {
+                    Football football = new Football();
+
+                    football.EventId = ev.Id;
+
+                    HttpResponseMessage footballMessage = await RestService.Post(football, "football/create");
 
                 }
                 else if(sportType2.Checked == true)

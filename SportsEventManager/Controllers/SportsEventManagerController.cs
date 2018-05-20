@@ -12,13 +12,13 @@ namespace SportsEventManager.Controllers
     {
         private IEventRepository _eventRepository;
 
-        //private readonly IFootballRepository _footballRepository;
+        private IFootballRepository _footballRepository;
 
-        public SportsEventManagerController(IEventRepository eventRepository)
+        public SportsEventManagerController(IEventRepository eventRepository, IFootballRepository footballRepository)
         {
             _eventRepository = eventRepository;
 
-            //_footballRepository = footballRepository;
+            _footballRepository = footballRepository;
         }
 
         [HttpPost]
@@ -26,12 +26,27 @@ namespace SportsEventManager.Controllers
         public async Task<IActionResult> CreateEvent([FromBody]Event ev)
         {
             try
+            {              
+                return Ok(_eventRepository.Create(ev));
+            }
+            catch(Exception ex)
             {
-                _eventRepository.Create(ev);
+                return Ok(ex);
+            }
+        }
+
+
+        [HttpPost]
+        [Route("api/football/create")]
+        public async Task<IActionResult> CreateFootballEvent([FromBody]Football ev)
+        {
+            try
+            {
+                _footballRepository.Create(ev);
 
                 return Ok();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return Ok(ex);
             }

@@ -37,7 +37,7 @@ namespace SportsEventManagerAdminApp.Services
                 }
                 catch (Exception ex)
                 {
-                    throw;
+                    throw ex;
                 }
             }
 
@@ -61,7 +61,7 @@ namespace SportsEventManagerAdminApp.Services
                 }
                 catch (Exception ex)
                 {
-                    throw;
+                    throw ex;
                 }
             }
 
