@@ -6,10 +6,84 @@
     android:layout_height="match_parent"
     android:minWidth="25px"
     android:minHeight="25px">
-    <TextView
-        android:text="ADD"
+    <GridLayout
+        android:minWidth="25px"
+        android:minHeight="25px"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView1"
-        android:layout_marginTop="25.0dp" />
+        android:layout_height="match_parent"
+        android:rowCount="8"
+        android:columnCount="1"
+        android:id="@+id/addEventGridLayout"
+        android:layout_marginTop="50.0dp">
+        <TextView
+            android:text="Home Team Name"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/textView1"
+            android:layout_gravity="center_horizontal" />
+        <EditText
+            android:inputType="textPersonName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/HomeTeamName"
+            android:layout_marginLeft="40.0dp"
+            android:layout_marginRight="40.0dp"
+            android:layout_gravity="center_horizontal" />
+        <TextView
+            android:text="Away Team Name"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/textView2"
+            android:layout_gravity="center_horizontal" />
+        <EditText
+            android:inputType="textPersonName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/AwayTeamName"
+            android:layout_marginLeft="40.0dp"
+            android:layout_marginRight="40.0dp"
+            android:layout_gravity="center_horizontal" />
+        <TextView
+            android:text="Tournament Name"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/textView3"
+            android:layout_gravity="center_horizontal" />
+        <EditText
+            android:inputType="textPersonName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/TournamentName"
+            android:layout_marginLeft="40.0dp"
+            android:layout_marginRight="40.0dp"
+            android:layout_gravity="center_horizontal" />
+        <RadioGroup
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:id="@+id/sportType"
+            android:layout_gravity="center_horizontal">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Football"
+                android:id="@+id/sportType1" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Volleyball"
+                android:id="@+id/sportType2" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tennis"
+                android:id="@+id/sportType3" />
+        </RadioGroup>
+        <Button
+            android:text="ADD"
+            android:id="@+id/addButton"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="10.0dp"
+            android:enabled="false"
+            android:layout_marginLeft="40.0dp"
+            android:layout_marginRight="40.0dp" />
+    </GridLayout>
 </RelativeLayout>

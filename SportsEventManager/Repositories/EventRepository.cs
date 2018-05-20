@@ -19,19 +19,16 @@ namespace SportsEventManager.Repositories
 
     public class EventRepository : IEventRepository
     {
-        private DbSet<Event> _dbSet;
+        private ApplicationDbContext _dbContext;
 
-        private DbContext _dbContext;
-
-        public EventRepository(DbSet<Event> dbSet, DbContext dbContext)
+        public EventRepository(ApplicationDbContext dbContext)
         {
-            _dbSet = dbSet;
             _dbContext = dbContext;
         }
 
         public void Create(Event ev)
         {
-            _dbSet.Add(ev);
+            _dbContext.EventDbSet.Add(ev);
 
             _dbContext.SaveChanges();
             
@@ -39,16 +36,25 @@ namespace SportsEventManager.Repositories
 
         public void Start(int id)
         {
-            Event ev = _dbSet.ToList().FirstOrDefault(x => x.Id == id);
+            Event ev = _dbContext.EventDbSet.ToList().FirstOrDefault(x => x.Id == id);
 
             ev.Started = DateTime.Now;
+
+            _dbContext.EventDbSet.Update(ev);
+
+            _dbContext.SaveChanges();
         }
 
         public void End(int id)
         {
-            Event ev = _dbSet.ToList().FirstOrDefault(x => x.Id == id);
+            Event ev = _dbContext.EventDbSet.ToList().FirstOrDefault(x => x.Id == id);
 
             ev.Ended = DateTime.Now;
+
+            _dbContext.EventDbSet.Update(ev);
+
+            _dbContext.SaveChanges();
+
         }
 
 

@@ -12,12 +12,13 @@ using Android.Views;
 using Android.Widget;
 using Newtonsoft.Json;
 using static Android.Provider.SyncStateContract;
+using SportsEventManagerAdmin.Models;
 
 namespace SportsEventManagerAdminApp.Services
 {
     public static class RestService
     {
-        private const string _url = "http://localhost:12210/api/";
+        private const string _url = "https://sporteventsmanager.azurewebsites.net/api/";
 
         public static async Task<HttpResponseMessage> Post(object item, string apiRoute)
         {

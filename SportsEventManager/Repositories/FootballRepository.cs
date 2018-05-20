@@ -18,12 +18,6 @@ namespace SportsEventManager.Repositories
 
         private DbContext _dbContext;
 
-        public FootballRepository(DbSet<Football> dbSet, DbContext dbContext)
-        {
-            _dbSet = dbSet;
-            _dbContext = dbContext;
-        }
-
         public void Create(Football ev)
         {
             _dbSet.Add(ev);
