@@ -90,5 +90,21 @@ namespace SportsEventManager.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("api/football/get")]
+        public async Task<IActionResult> GetFootballEvents()
+        {
+            try
+            {               
+                return Ok(_footballRepository.Get());
+            }
+            catch (Exception ex)
+            {
+                return Ok(ex);
+            }
+        }
+
+
+
     }
 }

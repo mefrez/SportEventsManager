@@ -1,4 +1,5 @@
-﻿using SportsEventManager.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using SportsEventManager.Data;
 using SportsEventManager.Models;
 using System;
 using System.Collections.Generic;
@@ -31,7 +32,7 @@ namespace SportsEventManager.Repositories
 
         public List<Tennis> Get()
         {
-            return _dbContext.TennisDbSet.ToList();
+            return _dbContext.TennisDbSet.Include("Event").ToList();
         }
     }
 }

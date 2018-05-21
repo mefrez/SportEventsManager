@@ -32,7 +32,7 @@ namespace SportsEventManager.Repositories
 
         public List<Football> Get()
         {
-            return _dbContext.FootballDbSet.ToList();
+            return _dbContext.FootballDbSet.Include("Event").ToList();
         }
     }
 }
