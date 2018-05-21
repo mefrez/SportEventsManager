@@ -60,6 +60,8 @@
     <Compile Include="ManageEventsActivity.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\Football.cs" />
+    <Compile Include="Models\Tennis.cs" />
+    <Compile Include="Models\Volleyball.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\RestService.cs" />

@@ -98,11 +98,19 @@ namespace SportsEventManagerAdmin
                 }
                 else if(sportType2.Checked == true)
                 {
+                    Volleyball volleyball = new Volleyball();
 
+                    volleyball.EventId = ev.Id;
+
+                    HttpResponseMessage volleyballMessage = await RestService.Post(volleyball, "volleyball/create");
                 }
                 else if(sportType3.Checked == true)
                 {
+                    Tennis tennis = new Tennis();
 
+                    tennis.EventId = ev.Id;
+
+                    HttpResponseMessage tennisMessage = await RestService.Post(tennis, "tennis/create");
                 }
 
                 var intent = new Intent(this, typeof(MainActivity));

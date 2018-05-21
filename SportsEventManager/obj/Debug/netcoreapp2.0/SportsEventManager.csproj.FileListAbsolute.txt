@@ -9,3 +9,4 @@ G:\PROJEKTY\SportsEventManagerRepo\SportsEventManager\obj\Debug\netcoreapp2.0\Sp
 G:\PROJEKTY\SportsEventManagerRepo\SportsEventManager\obj\Debug\netcoreapp2.0\SportsEventManager.AssemblyInfo.cs
 G:\PROJEKTY\SportsEventManagerRepo\SportsEventManager\obj\Debug\netcoreapp2.0\SportsEventManager.dll
 G:\PROJEKTY\SportsEventManagerRepo\SportsEventManager\obj\Debug\netcoreapp2.0\SportsEventManager.pdb
+G:\PROJEKTY\SportsEventManagerRepo\SportsEventManager\obj\Debug\netcoreapp2.0\SportsEventManager.csprojAssemblyReference.cache

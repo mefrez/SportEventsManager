@@ -11,7 +11,7 @@ namespace SportsEventManager.Repositories
     public interface IFootballRepository
     {
         void Create(Football ev);
-        List<Football> Get(Football ev);
+        List<Football> Get();
     }
     public class FootballRepository : IFootballRepository
     {
@@ -30,7 +30,7 @@ namespace SportsEventManager.Repositories
 
         }
 
-        public List<Football> Get(Football ev)
+        public List<Football> Get()
         {
             return _dbContext.FootballDbSet.ToList();
         }
