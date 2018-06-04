@@ -31,7 +31,7 @@ namespace SportsEventManagerUser
 
             SetContentView(Resource.Layout.events_layout);
 
-            eventsListView = FindViewById<ListView>(2131230876);
+            eventsListView = FindViewById<ListView>(Resource.Id.eventslistView);
 
             GetFootballMatches();
         }
