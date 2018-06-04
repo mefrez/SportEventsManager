@@ -29,6 +29,13 @@ namespace SportsEventManagerAdmin
         private TextView homeTeamScore;
         private TextView awayTeamScore;
 
+        private Button homeTeamScoreAdd;
+        private Button homeTeamScoreSubstract;
+
+        private Button awayTeamScoreAdd;
+        private Button awayTeamScoreSubstract;
+
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -51,6 +58,8 @@ namespace SportsEventManagerAdmin
 
             FindViews();
 
+            HandleEvents();
+
             homeTeamName.Text = footballEvent.Event.HostName;
             awayTeamName.Text = footballEvent.Event.GuestName;
 
@@ -66,6 +75,62 @@ namespace SportsEventManagerAdmin
             homeTeamScore = FindViewById<TextView>(Resource.Id.homeTeamScoreTextView);
             awayTeamScore = FindViewById<TextView>(Resource.Id.awayTeamScoreTextView);
 
+            homeTeamScoreAdd = FindViewById<Button>(Resource.Id.homeTeamScoreAdd);
+            homeTeamScoreSubstract = FindViewById<Button>(Resource.Id.homeTeamScoreSubstract);
+
+            awayTeamScoreAdd = FindViewById<Button>(Resource.Id.awayTeamScoreAdd);
+            awayTeamScoreSubstract = FindViewById<Button>(Resource.Id.awayTeamScoreSubstract);
+
+        }
+
+        private void HandleEvents()
+        {
+            homeTeamScoreAdd.Click += HomeTeamScoreAdd_Click;
+            homeTeamScoreSubstract.Click += HomeTeamScoreSubstract_Click;
+            awayTeamScoreAdd.Click += AwayTeamScoreAdd_Click;
+            awayTeamScoreSubstract.Click += AwayTeamScoreSubstract_Click;
+        }
+
+        private void AwayTeamScoreSubstract_Click(object sender, EventArgs e)
+        {
+            int score = Convert.ToInt32(awayTeamScore.Text);
+
+            if (score >= 1)
+            {
+                score--;
+            }
+
+            awayTeamScore.Text = score.ToString();
+        }
+
+        private void AwayTeamScoreAdd_Click(object sender, EventArgs e)
+        {
+            int score = Convert.ToInt32(awayTeamScore.Text);
+
+            score++;
+
+            awayTeamScore.Text = score.ToString();
+
+        }
+
+        private void HomeTeamScoreSubstract_Click(object sender, EventArgs e)
+        {
+            int score = Convert.ToInt32(homeTeamScore.Text);
+
+            if (score >= 1)
+            {
+                score--;
+            }
+            homeTeamScore.Text = score.ToString();
+        }
+
+        private void HomeTeamScoreAdd_Click(object sender, EventArgs e)
+        {
+            int score = Convert.ToInt32(homeTeamScore.Text);
+
+            score++;
+
+            homeTeamScore.Text = score.ToString();
         }
     }
 }

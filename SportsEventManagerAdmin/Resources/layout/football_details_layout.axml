@@ -10,35 +10,49 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/footballDetailGridLayout"
-        android:rowCount="6"
-        android:columnCount="2">
+        android:rowCount="8"
+        android:columnCount="1">
         <TextView
             android:text=""
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:id="@+id/homeTeamTextView"
-            android:layout_marginTop="40.0dp"
-            android:layout_marginLeft="60.0dp"
-            android:layout_marginRight="45.0dp" />
-        <TextView
-            android:text=""
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:id="@+id/awayTeamTextView"
-            android:layout_marginTop="40.0dp"
-            android:layout_marginLeft="45.0dp"
-            android:layout_marginRight="60.0dp" />
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30.0dp" />
         <TextView
             android:text=""
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:id="@+id/homeTeamScoreTextView"
-            android:layout_marginTop="40.0dp"
-            android:layout_marginLeft="60.0dp"
-            android:layout_marginRight="45.0dp" />
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30.0dp" />
+        <Button
+            android:text="+"
+            android:id="@+id/homeTeamScoreAdd"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30.0dp" />
+        <Button
+            android:text="-"
+            android:id="@+id/homeTeamScoreSubstract"
+            android:layout_gravity="center_horizontal" />
+        <TextView
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/awayTeamTextView"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30.0dp" />
         <TextView
             android:text=""
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:id="@+id/awayTeamScoreTextView"
-            android:layout_marginTop="40.0dp"
-            android:layout_marginLeft="45.0dp"
-            android:layout_marginRight="60.0dp" />
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30.0dp" />
+        <Button
+            android:text="+"
+            android:id="@+id/awayTeamScoreAdd"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30.0dp" />
+        <Button
+            android:text="-"
+            android:id="@+id/awayTeamScoreSubstract"
+            android:layout_gravity="center_horizontal" />
     </GridLayout>
 </RelativeLayout>
