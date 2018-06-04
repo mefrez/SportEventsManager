@@ -40,6 +40,8 @@ namespace SportsEventManagerAdmin
 
         private Button updateButton;
 
+        private int setCount;
+
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -72,6 +74,8 @@ namespace SportsEventManagerAdmin
 
             homeTeamSetScore.Text = volleyballEvent.HostSetScore.ToString();
             awayTeamSetScore.Text = volleyballEvent.GuestSetScore.ToString();
+
+            setCount = volleyballEvent.HostSetScore + volleyballEvent.GuestSetScore;
 
             homeTeamScore.Text = volleyballEvent.HostScore.ToString();
             awayTeamScore.Text = volleyballEvent.GuestScore.ToString();
@@ -155,7 +159,7 @@ namespace SportsEventManagerAdmin
             int tempHomeScore = Convert.ToInt32(homeTeamScore.Text);
             int tempAwayScore = Convert.ToInt32(awayTeamScore.Text);
 
-            if ((tempHomeScore >= 25 || tempAwayScore >= 25) && Math.Abs(tempHomeScore - tempAwayScore) > 1)
+            if ((tempHomeScore >= 25 || tempAwayScore >= 25) && Math.Abs(tempHomeScore - tempAwayScore) > 1 && setCount <= 3)
             {
                 if (tempHomeScore > tempAwayScore)
                 {
@@ -170,7 +174,27 @@ namespace SportsEventManagerAdmin
                 }
                 tempHomeScore = 0;
                 tempAwayScore = 0;
+                setCount++;
             }
+            if ((tempHomeScore >= 15 || tempAwayScore >= 15) && Math.Abs(tempHomeScore - tempAwayScore) > 1 && setCount == 4)
+            {
+                if (tempHomeScore > tempAwayScore)
+                {
+                    int score = Convert.ToInt32(homeTeamSetScore.Text);
+                    score += 1;
+                    homeTeamSetScore.Text = score.ToString();
+                }
+                else
+                {
+                    int score = Convert.ToInt32(awayTeamSetScore.Text);
+                    score += 1;
+                    awayTeamSetScore.Text = score.ToString();
+                }
+                tempHomeScore = 0;
+                tempAwayScore = 0;
+                setCount++;
+            }
+            
 
             homeTeamScore.Text = tempHomeScore.ToString();
             awayTeamScore.Text = tempAwayScore.ToString();

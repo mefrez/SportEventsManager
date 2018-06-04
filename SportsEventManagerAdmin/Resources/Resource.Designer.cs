@@ -2642,14 +2642,14 @@ namespace SportsEventManagerAdmin
 			// aapt resource value: 0x7f08008d
 			public const int manageVolleyballEventsButton = 2131230861;
 			
-			// aapt resource value: 0x7f0800d7
-			public const int masked = 2131230935;
+			// aapt resource value: 0x7f0800e5
+			public const int masked = 2131230949;
 			
 			// aapt resource value: 0x7f0800bc
 			public const int media_actions = 2131230908;
 			
-			// aapt resource value: 0x7f0800c9
-			public const int message = 2131230921;
+			// aapt resource value: 0x7f0800d7
+			public const int message = 2131230935;
 			
 			// aapt resource value: 0x7f080031
 			public const int middle = 2131230769;
@@ -2840,6 +2840,48 @@ namespace SportsEventManagerAdmin
 			// aapt resource value: 0x7f080019
 			public const int tag_transition_group = 2131230745;
 			
+			// aapt resource value: 0x7f0800d2
+			public const int tennisAwayGemScoreTextView = 2131230930;
+			
+			// aapt resource value: 0x7f0800d1
+			public const int tennisAwaySetScoreTextView = 2131230929;
+			
+			// aapt resource value: 0x7f0800d4
+			public const int tennisAwayTeamScoreAdd = 2131230932;
+			
+			// aapt resource value: 0x7f0800d5
+			public const int tennisAwayTeamScoreSubstract = 2131230933;
+			
+			// aapt resource value: 0x7f0800d3
+			public const int tennisAwayTeamScoreTextView = 2131230931;
+			
+			// aapt resource value: 0x7f0800d0
+			public const int tennisAwayTeamTextView = 2131230928;
+			
+			// aapt resource value: 0x7f0800c9
+			public const int tennisDetailGridLayout = 2131230921;
+			
+			// aapt resource value: 0x7f0800cc
+			public const int tennisHomeGemScoreTextView = 2131230924;
+			
+			// aapt resource value: 0x7f0800cb
+			public const int tennisHomeSetScoreTextView = 2131230923;
+			
+			// aapt resource value: 0x7f0800ce
+			public const int tennisHomeTeamScoreAdd = 2131230926;
+			
+			// aapt resource value: 0x7f0800cf
+			public const int tennisHomeTeamScoreSubstract = 2131230927;
+			
+			// aapt resource value: 0x7f0800cd
+			public const int tennisHomeTeamScoreTextView = 2131230925;
+			
+			// aapt resource value: 0x7f0800ca
+			public const int tennisHomeTeamTextView = 2131230922;
+			
+			// aapt resource value: 0x7f0800d6
+			public const int tennisUpdateButton = 2131230934;
+			
 			// aapt resource value: 0x7f0800b4
 			public const int tenniseventslistView = 2131230900;
 			
@@ -2924,47 +2966,47 @@ namespace SportsEventManagerAdmin
 			// aapt resource value: 0x7f080016
 			public const int view_offset_helper = 2131230742;
 			
-			// aapt resource value: 0x7f0800d6
-			public const int visible = 2131230934;
+			// aapt resource value: 0x7f0800e4
+			public const int visible = 2131230948;
 			
-			// aapt resource value: 0x7f0800d1
-			public const int volleyballAwaySetScoreTextView = 2131230929;
+			// aapt resource value: 0x7f0800df
+			public const int volleyballAwaySetScoreTextView = 2131230943;
 			
-			// aapt resource value: 0x7f0800d3
-			public const int volleyballAwayTeamScoreAdd = 2131230931;
+			// aapt resource value: 0x7f0800e1
+			public const int volleyballAwayTeamScoreAdd = 2131230945;
 			
-			// aapt resource value: 0x7f0800d4
-			public const int volleyballAwayTeamScoreSubstract = 2131230932;
+			// aapt resource value: 0x7f0800e2
+			public const int volleyballAwayTeamScoreSubstract = 2131230946;
 			
-			// aapt resource value: 0x7f0800d2
-			public const int volleyballAwayTeamScoreTextView = 2131230930;
+			// aapt resource value: 0x7f0800e0
+			public const int volleyballAwayTeamScoreTextView = 2131230944;
 			
-			// aapt resource value: 0x7f0800d0
-			public const int volleyballAwayTeamTextView = 2131230928;
+			// aapt resource value: 0x7f0800de
+			public const int volleyballAwayTeamTextView = 2131230942;
 			
-			// aapt resource value: 0x7f0800ca
-			public const int volleyballDetailGridLayout = 2131230922;
+			// aapt resource value: 0x7f0800d8
+			public const int volleyballDetailGridLayout = 2131230936;
 			
 			// aapt resource value: 0x7f0800b5
 			public const int volleyballEventslistView = 2131230901;
 			
-			// aapt resource value: 0x7f0800cc
-			public const int volleyballHomeSetScoreTextView = 2131230924;
+			// aapt resource value: 0x7f0800da
+			public const int volleyballHomeSetScoreTextView = 2131230938;
 			
-			// aapt resource value: 0x7f0800ce
-			public const int volleyballHomeTeamScoreAdd = 2131230926;
+			// aapt resource value: 0x7f0800dc
+			public const int volleyballHomeTeamScoreAdd = 2131230940;
 			
-			// aapt resource value: 0x7f0800cf
-			public const int volleyballHomeTeamScoreSubstract = 2131230927;
+			// aapt resource value: 0x7f0800dd
+			public const int volleyballHomeTeamScoreSubstract = 2131230941;
 			
-			// aapt resource value: 0x7f0800cd
-			public const int volleyballHomeTeamScoreTextView = 2131230925;
+			// aapt resource value: 0x7f0800db
+			public const int volleyballHomeTeamScoreTextView = 2131230939;
 			
-			// aapt resource value: 0x7f0800cb
-			public const int volleyballHomeTeamTextView = 2131230923;
+			// aapt resource value: 0x7f0800d9
+			public const int volleyballHomeTeamTextView = 2131230937;
 			
-			// aapt resource value: 0x7f0800d5
-			public const int volleyballUpdateButton = 2131230933;
+			// aapt resource value: 0x7f0800e3
+			public const int volleyballUpdateButton = 2131230947;
 			
 			// aapt resource value: 0x7f08003c
 			public const int withText = 2131230780;
@@ -3224,10 +3266,13 @@ namespace SportsEventManagerAdmin
 			public const int support_simple_spinner_dropdown_item = 2130968640;
 			
 			// aapt resource value: 0x7f040041
-			public const int tooltip = 2130968641;
+			public const int tennis_details_layout = 2130968641;
 			
 			// aapt resource value: 0x7f040042
-			public const int volleyball_details_layout = 2130968642;
+			public const int tooltip = 2130968642;
+			
+			// aapt resource value: 0x7f040043
+			public const int volleyball_details_layout = 2130968643;
 			
 			static Layout()
 			{

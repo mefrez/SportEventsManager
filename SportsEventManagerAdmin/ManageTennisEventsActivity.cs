@@ -35,6 +35,22 @@ namespace SportsEventManagerAdmin
             GetTennisMatches();
 
             // Create your application here
+
+            eventsListView.ItemClick += EventsListView_ItemClick;
+        }
+
+        private void EventsListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            var tennis = allTennisEvents[e.Position];
+
+            var intent = new Intent();
+
+            intent.SetClass(this, typeof(TennisEventDetailsActivity));
+
+            intent.PutExtra("tennisEventId", tennis.Id);
+
+            StartActivityForResult(intent, 100);
+
         }
 
         private async void GetTennisMatches()

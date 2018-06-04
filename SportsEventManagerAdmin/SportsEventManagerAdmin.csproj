@@ -71,6 +71,7 @@
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\RestService.cs" />
+    <Compile Include="TennisEventDetailsActivity.cs" />
     <Compile Include="VolleyballEventDetailsActivity.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -143,6 +144,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\volleyball_details_layout.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\tennis_details_layout.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
