@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 
 using Android.App;
@@ -34,6 +35,8 @@ namespace SportsEventManagerAdmin
 
         private Button awayTeamScoreAdd;
         private Button awayTeamScoreSubstract;
+
+        private Button updateButton;
 
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -81,6 +84,8 @@ namespace SportsEventManagerAdmin
             awayTeamScoreAdd = FindViewById<Button>(Resource.Id.awayTeamScoreAdd);
             awayTeamScoreSubstract = FindViewById<Button>(Resource.Id.awayTeamScoreSubstract);
 
+            updateButton = FindViewById<Button>(Resource.Id.updateButton);
+
         }
 
         private void HandleEvents()
@@ -89,6 +94,7 @@ namespace SportsEventManagerAdmin
             homeTeamScoreSubstract.Click += HomeTeamScoreSubstract_Click;
             awayTeamScoreAdd.Click += AwayTeamScoreAdd_Click;
             awayTeamScoreSubstract.Click += AwayTeamScoreSubstract_Click;
+            updateButton.Click += UpdateButton_Click;
         }
 
         private void AwayTeamScoreSubstract_Click(object sender, EventArgs e)
@@ -131,6 +137,24 @@ namespace SportsEventManagerAdmin
             score++;
 
             homeTeamScore.Text = score.ToString();
+        }
+
+        private void UpdateButton_Click(object sender, EventArgs e)
+        {
+            footballEvent.HostScore = Convert.ToInt32(homeTeamScore.Text);
+            footballEvent.GuestScore = Convert.ToInt32(awayTeamScore.Text);
+
+            Update(footballEvent, footballEventId);
+        }
+
+        private async void Update(Football football, int id)
+        {
+            updateButton.Enabled = false;
+            football.EventId = id;
+
+            HttpResponseMessage footballMessage = await RestService.Post(football, "football/update");
+
+            updateButton.Enabled = true;
         }
     }
 }

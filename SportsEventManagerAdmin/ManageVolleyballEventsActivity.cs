@@ -35,6 +35,22 @@ namespace SportsEventManagerAdmin
             GetVolleyballMatches();
 
             // Create your application here
+
+            volleyballEventslistView.ItemClick += EventsListView_ItemClick;
+        }
+
+        private void EventsListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            var volleyball = allVolleyballEvents[e.Position];
+
+            var intent = new Intent();
+
+            intent.SetClass(this, typeof(VolleyballEventDetailsActivity));
+
+            intent.PutExtra("volleyballEventId", volleyball.Id);
+
+            StartActivityForResult(intent, 100);
+
         }
 
         private async void GetVolleyballMatches()

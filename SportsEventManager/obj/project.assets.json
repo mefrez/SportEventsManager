@@ -13125,23 +13125,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Patryk.DESKTOP-OT71KDL\\.nuget\\packages\\": {},
-    "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\igorb\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\PROJEKTY\\SportsEventManagerRepo\\SportsEventManager\\SportsEventManager.csproj",
+      "projectUniqueName": "C:\\Users\\igorb\\Source\\Repos\\SportEventsManager\\SportsEventManager\\SportsEventManager.csproj",
       "projectName": "SportsEventManager",
-      "projectPath": "G:\\PROJEKTY\\SportsEventManagerRepo\\SportsEventManager\\SportsEventManager.csproj",
-      "packagesPath": "C:\\Users\\Patryk.DESKTOP-OT71KDL\\.nuget\\packages\\",
-      "outputPath": "G:\\PROJEKTY\\SportsEventManagerRepo\\SportsEventManager\\obj\\",
+      "projectPath": "C:\\Users\\igorb\\Source\\Repos\\SportEventsManager\\SportsEventManager\\SportsEventManager.csproj",
+      "packagesPath": "C:\\Users\\igorb\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\igorb\\Source\\Repos\\SportEventsManager\\SportsEventManager\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Patryk.DESKTOP-OT71KDL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\igorb\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
