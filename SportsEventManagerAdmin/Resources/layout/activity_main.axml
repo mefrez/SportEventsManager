@@ -11,15 +11,31 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/addEventButton"
-        android:layout_marginRight="80.0dp"
-        android:layout_marginLeft="80.0dp"
+        android:layout_marginRight="60.0dp"
+        android:layout_marginLeft="60.0dp"
         android:layout_marginTop="60.0dp" />
     <Button
-        android:text="Manage Events"
+        android:text="Manage Football Events"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/manageEventsButton"
-        android:layout_marginRight="80.0dp"
-        android:layout_marginLeft="80.0dp"
+        android:id="@+id/manageFootballEventsButton"
+        android:layout_marginRight="60.0dp"
+        android:layout_marginLeft="60.0dp"
         android:layout_marginTop="120.0dp" />
+    <Button
+        android:text="Manage Volleyball Events"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/manageVolleyballEventsButton"
+        android:layout_marginRight="60.0dp"
+        android:layout_marginLeft="60.0dp"
+        android:layout_marginTop="180.0dp" />
+    <Button
+        android:text="Manage Tennis Events"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/manageTennisEventsButton"
+        android:layout_marginRight="60.0dp"
+        android:layout_marginLeft="60.0dp"
+        android:layout_marginTop="240.0dp" />
 </RelativeLayout>

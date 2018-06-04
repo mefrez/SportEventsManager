@@ -18,7 +18,7 @@ using SportsEventManagerAdminApp.Services;
 
 namespace SportsEventManagerAdmin
 {
-    [Activity(Label = "Manage Events", Theme = "@style/AppTheme")]
+    [Activity(Label = "Manage Football Events", Theme = "@style/AppTheme")]
     public class ManageEventsActivity : AppCompatActivity
     {
         private ListView eventsListView;
@@ -35,7 +35,23 @@ namespace SportsEventManagerAdmin
 
             eventsListView = FindViewById<ListView>(Resource.Id.eventslistView);
 
-            GetFootballMatches();          
+            GetFootballMatches();
+
+            eventsListView.ItemClick += EventsListView_ItemClick;
+        }
+
+        private void EventsListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            var football = allFootballEvents[e.Position];
+
+            var intent = new Intent();
+
+            intent.SetClass(this, typeof(FootballEventDetailsActivity));
+
+            intent.PutExtra("footballEventId", football.Id);
+
+            StartActivityForResult(intent, 100);
+
         }
 
         private async void GetFootballMatches()

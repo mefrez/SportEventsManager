@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="25px"
+    android:minHeight="25px">
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/footballDetailGridLayout"
+        android:rowCount="6"
+        android:columnCount="2">
+        <TextView
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/homeTeamTextView"
+            android:layout_marginTop="40.0dp"
+            android:layout_marginLeft="60.0dp"
+            android:layout_marginRight="45.0dp" />
+        <TextView
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/awayTeamTextView"
+            android:layout_marginTop="40.0dp"
+            android:layout_marginLeft="45.0dp"
+            android:layout_marginRight="60.0dp" />
+        <TextView
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/homeTeamScoreTextView"
+            android:layout_marginTop="40.0dp"
+            android:layout_marginLeft="60.0dp"
+            android:layout_marginRight="45.0dp" />
+        <TextView
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/awayTeamScoreTextView"
+            android:layout_marginTop="40.0dp"
+            android:layout_marginLeft="45.0dp"
+            android:layout_marginRight="60.0dp" />
+    </GridLayout>
+</RelativeLayout>

@@ -12,6 +12,9 @@ namespace SportsEventManager.Repositories
     {
         void Create(Football ev);
         List<Football> Get();
+        Football GetById(int id);
+
+        Football Update(Football football);
     }
     public class FootballRepository : IFootballRepository
     {
@@ -33,6 +36,20 @@ namespace SportsEventManager.Repositories
         public List<Football> Get()
         {
             return _dbContext.FootballDbSet.Include("Event").ToList();
+        }
+
+        public Football GetById(int id)
+        {
+            return _dbContext.FootballDbSet.Include("Event").Where(x => x.Id == id).FirstOrDefault();
+        }
+
+        public Football Update(Football football)
+        {
+            _dbContext.FootballDbSet.Update(football);
+
+            _dbContext.SaveChanges();
+
+            return football;
         }
     }
 }

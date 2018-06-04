@@ -11,7 +11,9 @@ namespace SportsEventManagerAdmin
     public class MainActivity : AppCompatActivity
     {
         private Button addEventButton;
-        private Button manageEventsButton;
+        private Button manageFootballEventsButton;
+        private Button manageVolleyballEventsButton;
+        private Button manageTennisEventsButton;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -28,18 +30,34 @@ namespace SportsEventManagerAdmin
         private void FindViews()
         {
             addEventButton = FindViewById<Button>(Resource.Id.addEventButton);
-            manageEventsButton = FindViewById<Button>(Resource.Id.manageEventsButton);
+            manageFootballEventsButton = FindViewById<Button>(Resource.Id.manageFootballEventsButton);
+            manageVolleyballEventsButton = FindViewById<Button>(Resource.Id.manageVolleyballEventsButton);
+            manageTennisEventsButton = FindViewById<Button>(Resource.Id.manageTennisEventsButton);
         }
 
         private void HandleEvents()
         {
             addEventButton.Click += AddEventButton_Click;
-            manageEventsButton.Click += ManageEventsButton_Click;
+            manageFootballEventsButton.Click += ManageFootballEventsButton_Click;
+            manageVolleyballEventsButton.Click += ManageVolleyballEventsButton_Click;
+            manageTennisEventsButton.Click += ManageTennisEventsButton_Click;
         }
 
-        private void ManageEventsButton_Click(object sender, EventArgs e)
+        private void ManageFootballEventsButton_Click(object sender, EventArgs e)
         {
             var intent = new Intent(this, typeof(ManageEventsActivity));
+            StartActivity(intent);
+        }
+
+        private void ManageTennisEventsButton_Click(object sender, EventArgs e)
+        {
+            var intent = new Intent(this, typeof(ManageTennisEventsActivity));
+            StartActivity(intent);
+        }
+
+        private void ManageVolleyballEventsButton_Click(object sender, EventArgs e)
+        {
+            var intent = new Intent(this, typeof(ManageVolleyballEventsActivity));
             StartActivity(intent);
         }
 

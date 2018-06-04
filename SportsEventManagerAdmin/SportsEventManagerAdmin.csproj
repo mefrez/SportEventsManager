@@ -56,9 +56,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adapters\FootballEventsAdapter.cs" />
+    <Compile Include="Adapters\TennisEventsAdapter.cs" />
+    <Compile Include="Adapters\VolleyballEventsAdapter.cs" />
     <Compile Include="AddEventActivity.cs" />
+    <Compile Include="FootballEventDetailsActivity.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="ManageEventsActivity.cs" />
+    <Compile Include="ManageTennisEventsActivity.cs" />
+    <Compile Include="ManageVolleyballEventsActivity.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\Football.cs" />
     <Compile Include="Models\Tennis.cs" />
@@ -117,7 +122,24 @@
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Fragment\" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\manage_volleyball_events_layout.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\manage_tennis_events_layout.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\football_details_layout.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
 		Other similar extension points exist, see Microsoft.Common.targets.

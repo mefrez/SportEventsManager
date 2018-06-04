@@ -90,6 +90,62 @@ namespace SportsEventManager.Controllers
             }
         }
 
+        [HttpPost]
+        [Route("api/football/update")]
+        public async Task<IActionResult> UpdateFootballEvent([FromBody]Football ev)
+        {
+            Football football = new Football();
+
+            try
+            {
+                football = _footballRepository.Update(ev);
+
+                return Ok(football);
+            }
+            catch (Exception ex)
+            {
+                return Ok(ex);
+            }
+        }
+
+        [HttpPost]
+        [Route("api/tennis/update")]
+        public async Task<IActionResult> UpdateTennisEvent([FromBody]Tennis ev)
+        {
+            Tennis tennis = new Tennis();
+
+            try
+            {
+                tennis = _tennisRepository.Update(ev);
+
+                return Ok(tennis);
+            }
+            catch (Exception ex)
+            {
+                return Ok(ex);
+            }
+        }
+
+
+        [HttpPost]
+        [Route("api/volleyball/update")]
+        public async Task<IActionResult> UpdateVolleyballEvent([FromBody]Volleyball ev)
+        {
+            Volleyball volleyball = new Volleyball();
+
+            try
+            {
+                volleyball = _volleyballRepository.Update(ev);
+
+                return Ok(volleyball);
+            }
+            catch (Exception ex)
+            {
+                return Ok(ex);
+            }
+        }
+
+
         [HttpGet]
         [Route("api/football/get")]
         public async Task<IActionResult> GetFootballEvents()
@@ -97,6 +153,77 @@ namespace SportsEventManager.Controllers
             try
             {               
                 return Ok(_footballRepository.Get());
+            }
+            catch (Exception ex)
+            {
+                return Ok(ex);
+            }
+        }
+
+        [HttpGet]
+        [Route("api/football/get/{id}")]
+        public async Task<IActionResult> GetFootballEvent(int id)
+        {
+            try
+            {
+                return Ok(_footballRepository.GetById(id));
+            }
+            catch (Exception ex)
+            {
+                return Ok(ex);
+            }
+        }
+
+        [HttpGet]
+        [Route("api/tennis/get")]
+        public async Task<IActionResult> GetTennisEvents()
+        {
+            try
+            {
+                return Ok(_tennisRepository.Get());
+            }
+            catch (Exception ex)
+            {
+                return Ok(ex);
+            }
+        }
+
+        [HttpGet]
+        [Route("api/tennis/get/{id}")]
+        public async Task<IActionResult> GetTennisEventById(int id)
+        {
+            try
+            {
+                return Ok(_tennisRepository.GetById(id));
+            }
+            catch (Exception ex)
+            {
+                return Ok(ex);
+            }
+        }
+
+
+        [HttpGet]
+        [Route("api/volleyball/get")]
+        public async Task<IActionResult> GetVolleyballEvents()
+        {
+            try
+            {
+                return Ok(_volleyballRepository.Get());
+            }
+            catch (Exception ex)
+            {
+                return Ok(ex);
+            }
+        }
+
+        [HttpGet]
+        [Route("api/volleyball/get/{id}")]
+        public async Task<IActionResult> GetVolleyballEventById(int id)
+        {
+            try
+            {
+                return Ok(_volleyballRepository.GetById(id));
             }
             catch (Exception ex)
             {
