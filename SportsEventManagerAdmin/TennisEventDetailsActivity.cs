@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 
 using Android.App;
@@ -42,6 +43,9 @@ namespace SportsEventManagerAdmin
 
         private Button updateButton;
 
+        private bool isTiebreaker;
+        private int setCount;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -76,6 +80,15 @@ namespace SportsEventManagerAdmin
 
             homeSetScore.Text = tennisEvent.HostSetScore.ToString();
             awaySetScore.Text = tennisEvent.GuestSetScore.ToString();
+
+            if (Convert.ToInt32(homeGemScore.Text) == 6 && Convert.ToInt32(awayGemScore.Text) == 6)
+            {
+                isTiebreaker = true;
+            } else
+            {
+                isTiebreaker = false;
+            }
+            setCount = tennisEvent.HostSetScore + tennisEvent.GuestSetScore;
         }
 
         private void FindViews()
@@ -105,12 +118,24 @@ namespace SportsEventManagerAdmin
 
             awayScoreAdd.Click += AwayScoreAdd_Click;
             awayScoreSubstract.Click += AwayScoreSubstract_Click;
+
+            updateButton.Click += UpdateButton_Click;
         }
 
         private void AwayScoreSubstract_Click(object sender, EventArgs e)
         {
-            int check = checkScore(Convert.ToInt32(awayScore.Text), Convert.ToInt32(homeScore.Text));
             int score = Convert.ToInt32(awayScore.Text);
+            if (isTiebreaker)
+            {
+                if (score < 1)
+                {
+                    return;
+                }
+                score -= 1;
+                awayScore.Text = score.ToString();
+                return;
+            }
+            int check = checkScore(Convert.ToInt32(awayScore.Text), Convert.ToInt32(homeScore.Text));
             if (score < 15)
             {
                 return;
@@ -141,8 +166,14 @@ namespace SportsEventManagerAdmin
 
         private void AwayScoreAdd_Click(object sender, EventArgs e)
         {
-            int check = checkScore(Convert.ToInt32(awayScore.Text), Convert.ToInt32(homeScore.Text));
             int score = Convert.ToInt32(awayScore.Text);
+            if (isTiebreaker)
+            {
+                score += 1;
+                awayScore.Text = score.ToString();
+                return;
+            }
+            int check = checkScore(Convert.ToInt32(awayScore.Text), Convert.ToInt32(homeScore.Text));
             switch (check)
             {
                 case 1:
@@ -168,8 +199,18 @@ namespace SportsEventManagerAdmin
 
         private void HomeScoreSubstract_Click(object sender, EventArgs e)
         {
-            int check = checkScore(Convert.ToInt32(homeScore.Text), Convert.ToInt32(awayScore.Text));
             int score = Convert.ToInt32(homeScore.Text);
+            if (isTiebreaker)
+            {
+                if(score < 1)
+                {
+                    return;
+                }
+                score -= 1;
+                homeScore.Text = score.ToString();
+                return;
+            }
+            int check = checkScore(Convert.ToInt32(homeScore.Text), Convert.ToInt32(awayScore.Text));
             if (score < 15)
             {
                 return;
@@ -201,8 +242,14 @@ namespace SportsEventManagerAdmin
 
         private void HomeScoreAdd_Click(object sender, EventArgs e)
         {
-            int check = checkScore(Convert.ToInt32(homeScore.Text), Convert.ToInt32(awayScore.Text));
             int score = Convert.ToInt32(homeScore.Text);
+            if (isTiebreaker)
+            {
+                score += 1;
+                homeScore.Text = score.ToString();
+                return;
+            }
+            int check = checkScore(Convert.ToInt32(homeScore.Text), Convert.ToInt32(awayScore.Text));
             switch (check)
             {
                 case 1:
@@ -254,6 +301,100 @@ namespace SportsEventManagerAdmin
             }
             return -1;
            
+        }
+
+        private void UpdateButton_Click(object sender, EventArgs e)
+        {
+            if (setCount < 3 && Convert.ToInt32(homeSetScore.Text) < 2 && Convert.ToInt32(awaySetScore.Text) < 2)
+            {
+                int tempHomeScore = Convert.ToInt32(homeScore.Text);
+                int tempAwayScore = Convert.ToInt32(awayScore.Text);
+
+                if (isTiebreaker && tempHomeScore > 5 && tempAwayScore > 5 && Math.Abs(tempHomeScore - tempAwayScore) > 1)
+                {
+                    if (tempHomeScore > tempAwayScore)
+                    {
+                        int score = Convert.ToInt32(homeSetScore.Text);
+                        score += 1;
+                        homeSetScore.Text = score.ToString();
+                    }
+                    else
+                    {
+                        int score = Convert.ToInt32(awaySetScore.Text);
+                        score += 1;
+                        awaySetScore.Text = score.ToString();
+                    }
+                    homeGemScore.Text = "0";
+                    awayGemScore.Text = "0";
+                    homeScore.Text = "0";
+                    awayScore.Text = "0";
+                    isTiebreaker = false;
+                    setCount += 1;
+                }
+                if ((tempHomeScore > 50 || tempAwayScore > 50) && Math.Abs(tempHomeScore - tempAwayScore) > 10)
+                {
+                    if (tempHomeScore > tempAwayScore)
+                    {
+                        int score = Convert.ToInt32(homeGemScore.Text);
+                        score += 1;
+                        homeGemScore.Text = score.ToString();
+                    }
+                    else
+                    {
+                        int score = Convert.ToInt32(awayGemScore.Text);
+                        score += 1;
+                        awayGemScore.Text = score.ToString();
+                    }
+
+                    homeScore.Text = "0";
+                    awayScore.Text = "0";
+                }
+                if ((Convert.ToInt32(homeGemScore.Text) > 5 || Convert.ToInt32(awayGemScore.Text) > 5) && Math.Abs(Convert.ToInt32(homeGemScore.Text)-Convert.ToInt32(awayGemScore.Text)) > 1)
+                {
+                    if(Convert.ToInt32(homeGemScore.Text) > Convert.ToInt32(awayGemScore.Text))
+                    {
+                        int score = Convert.ToInt32(homeSetScore.Text);
+                        score += 1;
+                        homeSetScore.Text = score.ToString();
+                    }
+                    else
+                    {
+                        int score = Convert.ToInt32(awaySetScore.Text);
+                        score += 1;
+                        awaySetScore.Text = score.ToString();
+                    }
+                    homeScore.Text = "0";
+                    homeGemScore.Text = "0";
+                    awayScore.Text = "0";
+                    awayGemScore.Text = "0";
+                    setCount += 1;
+                }
+
+                if((Convert.ToInt32(homeGemScore.Text) == 6 && Convert.ToInt32(awayGemScore.Text) == 6) && Math.Abs(Convert.ToInt32(homeGemScore.Text) - Convert.ToInt32(awayGemScore.Text)) < 2)
+                {
+                    isTiebreaker = true; 
+                }
+
+                tennisEvent.HostScore = Convert.ToInt32(homeScore.Text);
+                tennisEvent.GuestScore = Convert.ToInt32(awayScore.Text);
+                tennisEvent.HostGameScore = Convert.ToInt32(homeGemScore.Text);
+                tennisEvent.GuestGameScore = Convert.ToInt32(awayGemScore.Text);
+                tennisEvent.HostSetScore = Convert.ToInt32(homeSetScore.Text);
+                tennisEvent.GuestSetScore = Convert.ToInt32(awaySetScore.Text);
+
+                Update(tennisEvent, tennisEventId);
+            }
+        }
+
+
+        private async void Update(Tennis tennis, int id)
+        {
+            updateButton.Enabled = false;
+            tennis.EventId = id;
+
+            HttpResponseMessage tennisMessage = await RestService.Post(tennis, "tennis/update");
+
+            updateButton.Enabled = true;
         }
 
 

@@ -212,7 +212,7 @@ namespace SportsEventManagerAdmin
             updateButton.Enabled = false;
             volleyball.EventId = id;
 
-            HttpResponseMessage footballMessage = await RestService.Post(volleyball, "volleyball/update");
+            HttpResponseMessage volleyballMessage = await RestService.Post(volleyball, "volleyball/update");
 
             updateButton.Enabled = true;
         }

@@ -57,7 +57,8 @@ namespace SportsEventManagerUser.Adapters
 
 
             //fill in your items
-            holder.Title.Text = item.Event.HostName + " " + item.HostScore + " : " + item.GuestScore + " " + item.Event.GuestName;
+            holder.Title.Text = item.Event.HostName + " - " + item.HostScore + " " + item.HostGameScore + " (" + item.HostSetScore + ") : (" 
+                + item.GuestSetScore + ") " + item.GuestGameScore + " " + item.GuestScore + " " + item.Event.GuestName;
 
             return view;
         }
