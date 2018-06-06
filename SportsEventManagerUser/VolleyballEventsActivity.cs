@@ -23,6 +23,8 @@ namespace SportsEventManagerUser
 
         private List<Volleyball> allVolleyballEvents = new List<Volleyball>();
 
+        private Button refreshButton;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -33,6 +35,15 @@ namespace SportsEventManagerUser
 
             eventsListView = FindViewById<ListView>(Resource.Id.eventslistView);
 
+            GetVolleyballMatches();
+
+            refreshButton = FindViewById<Button>(Resource.Id.refreshButton);
+
+            refreshButton.Click += RefreshButton_Click;
+        }
+
+        private void RefreshButton_Click(object sender, EventArgs e)
+        {
             GetVolleyballMatches();
         }
 
