@@ -158,53 +158,56 @@ namespace SportsEventManagerAdmin
         {
             int tempHomeScore = Convert.ToInt32(homeTeamScore.Text);
             int tempAwayScore = Convert.ToInt32(awayTeamScore.Text);
-
-            if ((tempHomeScore >= 25 || tempAwayScore >= 25) && Math.Abs(tempHomeScore - tempAwayScore) > 1 && setCount <= 3)
+            if (setCount < 5 && Convert.ToInt32(homeTeamSetScore.Text) < 3 && Convert.ToInt32(awayTeamSetScore.Text) < 3)
             {
-                if (tempHomeScore > tempAwayScore)
+                if ((tempHomeScore >= 25 || tempAwayScore >= 25) && Math.Abs(tempHomeScore - tempAwayScore) > 1 && setCount <= 3)
                 {
-                    int score = Convert.ToInt32(homeTeamSetScore.Text);
-                    score += 1;
-                    homeTeamSetScore.Text = score.ToString();
-                } else
-                {
-                    int score = Convert.ToInt32(awayTeamSetScore.Text);
-                    score += 1;
-                    awayTeamSetScore.Text = score.ToString();
+                    if (tempHomeScore > tempAwayScore)
+                    {
+                        int score = Convert.ToInt32(homeTeamSetScore.Text);
+                        score += 1;
+                        homeTeamSetScore.Text = score.ToString();
+                    }
+                    else
+                    {
+                        int score = Convert.ToInt32(awayTeamSetScore.Text);
+                        score += 1;
+                        awayTeamSetScore.Text = score.ToString();
+                    }
+                    tempHomeScore = 0;
+                    tempAwayScore = 0;
+                    setCount++;
                 }
-                tempHomeScore = 0;
-                tempAwayScore = 0;
-                setCount++;
+                if ((tempHomeScore >= 15 || tempAwayScore >= 15) && Math.Abs(tempHomeScore - tempAwayScore) > 1 && setCount == 4)
+                {
+                    if (tempHomeScore > tempAwayScore)
+                    {
+                        int score = Convert.ToInt32(homeTeamSetScore.Text);
+                        score += 1;
+                        homeTeamSetScore.Text = score.ToString();
+                    }
+                    else
+                    {
+                        int score = Convert.ToInt32(awayTeamSetScore.Text);
+                        score += 1;
+                        awayTeamSetScore.Text = score.ToString();
+                    }
+                    tempHomeScore = 0;
+                    tempAwayScore = 0;
+                    setCount++;
+                }
+
+
+                homeTeamScore.Text = tempHomeScore.ToString();
+                awayTeamScore.Text = tempAwayScore.ToString();
+
+                volleyballEvent.HostScore = tempHomeScore;
+                volleyballEvent.GuestScore = tempAwayScore;
+                volleyballEvent.HostSetScore = Convert.ToInt32(homeTeamSetScore.Text);
+                volleyballEvent.GuestSetScore = Convert.ToInt32(awayTeamSetScore.Text);
+
+                Update(volleyballEvent, volleyballEventId);
             }
-            if ((tempHomeScore >= 15 || tempAwayScore >= 15) && Math.Abs(tempHomeScore - tempAwayScore) > 1 && setCount == 4)
-            {
-                if (tempHomeScore > tempAwayScore)
-                {
-                    int score = Convert.ToInt32(homeTeamSetScore.Text);
-                    score += 1;
-                    homeTeamSetScore.Text = score.ToString();
-                }
-                else
-                {
-                    int score = Convert.ToInt32(awayTeamSetScore.Text);
-                    score += 1;
-                    awayTeamSetScore.Text = score.ToString();
-                }
-                tempHomeScore = 0;
-                tempAwayScore = 0;
-                setCount++;
-            }
-            
-
-            homeTeamScore.Text = tempHomeScore.ToString();
-            awayTeamScore.Text = tempAwayScore.ToString();
-
-            volleyballEvent.HostScore = tempHomeScore;
-            volleyballEvent.GuestScore = tempAwayScore;
-            volleyballEvent.HostSetScore = Convert.ToInt32(homeTeamSetScore.Text);
-            volleyballEvent.GuestSetScore = Convert.ToInt32(awayTeamSetScore.Text);
-
-            Update(volleyballEvent, volleyballEventId);
         }
 
         private async void Update(Volleyball volleyball, int id)
